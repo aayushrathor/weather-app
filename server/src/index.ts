@@ -1,13 +1,13 @@
-import path from "path";
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import weatherRoute from "./routes/weather.route";
 
-//dotenv.config({ path: path.join(__dirname, "../.env") });
 dotenv.config();
 
 const PORT = process.env.NODE_PORT || 8001;
 const app = express();
+app.use(cors());
 
 app.use("/weather", weatherRoute);
 
