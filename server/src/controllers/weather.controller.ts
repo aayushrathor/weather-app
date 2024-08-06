@@ -1,3 +1,4 @@
+import { WeatherErrorResponse } from "../interfaces/weather";
 import { getWeather } from "../services/weather.service";
 
 const getWeatherController = async (req: any, res: any): Promise<void> => {
@@ -6,7 +7,13 @@ const getWeatherController = async (req: any, res: any): Promise<void> => {
     const weatherData = await getWeather(city);
     res.json(weatherData);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching weather data" });
+    if (error instanceof WeatherErrorResponse) {
+      res
+        .status(error.status)
+        .json({ cod: error.status, message: error.message });
+    } else {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
   }
 };
 
