@@ -3,6 +3,12 @@
 > weather application using openweathermap api
 > provides information about temperature, humidity, wind speed and weather description
 
+Success Response
+![success](./assests/success.png)
+
+Error Response
+![error](./assests/error.png)
+
 # How to Setup
 
 1. clone repository
@@ -35,11 +41,11 @@ cd server
 pnpm run start
 ```
 
-4. run using docker
-
-```bash
-docker compose up
-```
+<!-- 4. run using docker -->
+<!---->
+<!-- ```bash -->
+<!-- docker compose up -->
+<!-- ``` -->
 
 # Environment Variables
 
@@ -48,3 +54,9 @@ NODE_PORT=8000
 WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
 WEATHER_API_KEY=<API_KEY>
 ```
+
+# TODO
+
+- [ ] add logging
+- [ ] github actions
+- [ ] docker integration
