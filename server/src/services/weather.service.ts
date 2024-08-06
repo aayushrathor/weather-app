@@ -12,7 +12,6 @@ const getWeather = async (city: string): Promise<WeatherResponse> => {
 
   if (!response.ok) {
     const errorData: { cod: string; message: string } = await response.json();
-    console.log("here", errorData, response.status);
     throw new WeatherErrorResponse(errorData.message, response.status);
   }
 
