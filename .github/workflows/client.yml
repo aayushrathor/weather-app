@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           # node-version: "20"
-          node-version-file: "${{ github.workspace }}/client/package.json"
+          node-version-file: "client/package.json"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
