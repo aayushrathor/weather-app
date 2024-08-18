@@ -1,0 +1,20 @@
+services:
+  client:
+    build:
+      context: ./client/
+      # target: prod
+    ports:
+      - 3000:3000
+    environment:
+      WEATHER_URL: http://localhost:8000/weather
+  server:
+    build:
+      context: ./server/
+      # target: prod
+    ports:
+      - 8000:8000
+    environment:
+      NODE_PORT: 8000
+      NODE_ENV: production
+      WEATHER_API_URL: https://api.openweathermap.org/data/2.5/weather
+      WEATHER_API_KEY:
